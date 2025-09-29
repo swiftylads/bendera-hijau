@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonetic Alphabet - Bendera Hijau</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+      <div class="plane"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div id="navbar"></div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="ifr-container">
+      <div class="nav-tabs">
+        <div class="flow-tabs" id="flowTabs">
+          <!-- Departure Flow (Default) -->
+          <button
+            class="nav-tab active"
+            onclick="showSection('delivery')"
+            data-flow="departure"
+          >
+            Delivery
+          </button>
+          <button
+            class="nav-tab"
+            onclick="showSection('ground')"
+            data-flow="departure"
+          >
+            Ground
+          </button>
+          <button
+            class="nav-tab"
+            onclick="showSection('tower')"
+            data-flow="departure"
+          >
+            Tower
+          </button>
+          <button
+            class="nav-tab"
+            onclick="showSection('approach')"
+            data-flow="departure"
+          >
+            Approach
+          </button>
+          <button
+            class="nav-tab"
+            onclick="showSection('enroute')"
+            data-flow="departure"
+          >
+            En Route
+          </button>
+        </div>
+        <button
+          class="mode-toggle active"
+          id="modeToggle"
+          onclick="toggleMode()"
+        >
+          Arrival
+        </button>
+      </div>
+    </div>
+
+    <div id="delivery" class="content-section active">
+      <div class="phrase-category">
+        <h2 class="category-title">Delivery</h2>
+
+        <div class="phrases-grid">
+          <div class="phrase-card">
+            <div class="phrase-situation">Requesting IFR Clearance</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Soetta Delivery, GIA123, request IFR clearance to Denpasar FL370
+              with information D"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Cleared to destination departure follow CA2A, runway 07L,
+              initial climb FL290, expect FL370, Squawk 5362"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared to Denpasar, CA2A departure, runway 07L, initial climb
+              FL290, expect FL370, Squawk 5362, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Readback correct, Contact Ground 121.600"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "121.600, Wilco (Will Comply), GIA123"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ground Section -->
+    <div id="ground" class="content-section">
+      <div class="phrase-category">
+        <h2 class="category-title">Ground</h2>
+
+        <div class="phrases-grid">
+          <div class="phrase-card">
+            <div class="phrase-situation">Request Push and Start</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Soetta Ground, GIA123, Parking stand G42, ready for push and
+              start"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, push and start approved facing west, expect NC3"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Facing west expect NC3, GIA123"
+            </div>
+          </div>
+        </div>
+
+        <div class="phrases-grid">
+          <div class="phrase-card">
+            <div class="phrase-situation">Request Taxi</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Soetta Ground, GIA123, Request Taxi"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Taxi holding point N9 runway 07L via NC3 NP2"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Holding point N9 runway 07L via NC3 NP2, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Contact Tower 118.200"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Contact Tower 118.200, GIA123"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tower Section -->
+    <div id="tower" class="content-section">
+      <div class="phrase-category">
+        <h2 class="category-title">Tower</h2>
+
+        <div class="phrases-grid">
+          <div class="phrase-card">
+            <div class="phrase-situation">Takeoff Clearance</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Soetta Tower, GIA123, ready for departure runway 07L"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, wind 070 degrees 8 knots runway 07L, cleared for takeoff"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Runway 07L, cleared for takeoff, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Airborne time 14.00 Zulu, contact Jakarta Radar 124.350"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Contact Jakarta Radar 124.350, GIA123"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Approach Section -->
+    <div id="approach" class="content-section">
+      <div class="phrase-category">
+        <h2 class="category-title">Approach</h2>
+        <div class="phrases-grid">
+          <div class="phrase-card">
+            <div class="phrase-situation">Approach</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Jakarta Radar, GIA123 passing 3000ft climbing FL290"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Identified, climb FL290 no restriction"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Climb FL290 unrestricted, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Contact Jakarta Control 132.300"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Contact Jakarta Control 132.300, GIA123"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- En Route Section -->
+    <div id="enroute" class="content-section">
+      <div class="phrase-category">
+        <h2 class="category-title">En Route</h2>
+        <div class="phrases-grid">
+          <div class="phrase-card">
+            <div class="phrase-situation">En Route</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Jakarta Control, GIA123, level off at FL290"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Identified continue climb final FL370"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Climb final FL370, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Contact Ujung Radar 132.150"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Contact Ujung Radar 132.150, GIA123"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrival Sections (Separate sections for arrival flow) -->
+    <div id="arrival-enroute" class="content-section">
+      <div class="phrase-category arrival-category">
+        <h2 class="category-title">En Route</h2>
+        <div class="phrases-grid">
+          <div class="phrase-card arrival-card">
+            <div class="phrase-situation arrival-situation">
+              Request Descent for Arrival
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Ujung Radar, GIA123 with you on FL370 inbound ANY"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, identified maintain FL370"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "maintain FL370, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Arrival clearance available"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Go Ahead, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Cleared to Denpasar follow MOVMO1E Arrival expect RNP
+              Approach RWY09"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared to Denpasar follow MOVMO1E Arrival expect RNP Approach
+              RWY09, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Readback is correct report when ready for descend"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Wilco (Will Comply), GIA123"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Ujung Radar, GIA123 ready for descend"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Descend FL250"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Descend FL250, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Contact Bali Radar 119.700"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Contact Bali Radar 119.700"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="arrival-approach" class="content-section">
+      <div class="phrase-category arrival-category">
+        <h2 class="category-title">Approach</h2>
+        <div class="phrases-grid">
+          <div class="phrase-card arrival-card">
+            <div class="phrase-situation arrival-situation">Approach</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Bali Radar, GIA123, Maintaining FL250"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Descent 10000 feet"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Descent 10000 feet, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Descent 3000 feet QNH1011, Cleared RNP approach runway
+              09"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Descent 3000 feet QNH1011 and cleared RNP approach runway 09,
+              GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Contact Ngurah Tower 118.100"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Contact Ngurah Tower 118.100, GIA123"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="arrival-tower" class="content-section">
+      <div class="phrase-category arrival-category">
+        <h2 class="category-title">Tower</h2>
+        <div class="phrases-grid">
+          <div class="phrase-card arrival-card">
+            <div class="phrase-situation arrival-situation">
+              Landing Clearance
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Ngurah Tower, GIA123, established RNP runway 09"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, wind 070 degrees 6 knots, runway 09 clear to land"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Runway 09, cleared to land, GIA123"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, left turn vacate N3, contact Ground 118.800"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "N3, Contact Ground 118.800, GIA123"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="arrival-ground" class="content-section">
+      <div class="phrase-category arrival-category">
+        <h2 class="category-title">Ground</h2>
+        <div class="phrases-grid">
+          <div class="phrase-card arrival-card">
+            <div class="phrase-situation arrival-situation">Taxi to Gate</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Ngurah Ground, GIA123, runway vacated via N3"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, taxi to gate A15 via NP, report onblock"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Taxi to gate A15 via NP, Wilco, GIA123"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "GIA123, Onblock A15"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "GIA123, Frequency change approved UNICOM 122.800"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "UNICOM 122.800, Thankyou, GIA123"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garis bawah -->
+    <div class="hero-separator"></div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Bendera Hijau Community v1.0</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
