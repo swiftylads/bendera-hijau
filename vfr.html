@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circuit Pattern - Flight Sim Community</title>
+    <link rel="icon" type="image/png" href="img/greenflag.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+      <div class="plane"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div id="navbar"></div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="vfr-container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title">Circuit Pattern</h2>
+        <div class="hero-separator"></div>
+      </div>
+
+      <!-- Circuit Pattern Diagram -->
+      <div class="circuit-diagram-section">
+        <div class="diagram-container">
+          <!-- <h2 class="diagram-title">Standard Circuit Pattern Diagram</h2> -->
+          <div class="diagram-placeholder">
+            <img
+              src="img/traffic_circuit.png"
+              alt="Circuit Pattern"
+              class="diagram-image active"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Circuit Legs Section -->
+      <div class="circuit-legs-section">
+        <div class="section-header">
+          <h2 class="section-title">Circuit Legs</h2>
+          <p class="section-subtitle">
+            Lima bagian utama dalam standard circuit pattern
+          </p>
+        </div>
+
+        <div class="legs-grid">
+          <!-- Leg 1: Upwind -->
+          <div class="leg-card">
+            <div class="leg-number">1</div>
+            <h3 class="leg-title">Upwind (Departure)</h3>
+            <p class="leg-description">
+              Setelah takeoff, terbang lurus searah dengan runway hingga
+              mencapai altitude yang aman untuk turn.
+            </p>
+            <span class="leg-altitude">🛫 Climb to circuit altitude</span>
+          </div>
+
+          <!-- Leg 2: Crosswind -->
+          <div class="leg-card">
+            <div class="leg-number">2</div>
+            <h3 class="leg-title">Crosswind</h3>
+            <p class="leg-description">
+              Turn 90° ke kiri (atau kanan untuk right-hand circuit). Lanjutkan
+              climb hingga mencapai circuit altitude.
+            </p>
+            <span class="leg-altitude">⬆️ Level off at circuit altitude</span>
+          </div>
+
+          <!-- Leg 3: Downwind -->
+          <div class="leg-card">
+            <div class="leg-number">3</div>
+            <h3 class="leg-title">Downwind</h3>
+            <p class="leg-description">
+              Turn 90° lagi sehingga terbang paralel dengan runway, berlawanan
+              arah. Maintain circuit altitude.
+            </p>
+            <span class="leg-altitude">➡️ Maintain circuit altitude</span>
+          </div>
+
+          <!-- Leg 4: Base -->
+          <div class="leg-card">
+            <div class="leg-number">4</div>
+            <h3 class="leg-title">Base</h3>
+            <p class="leg-description">Turn 90° menuju runway. Mulai descent</p>
+            <span class="leg-altitude">⬇️ Begin descent</span>
+          </div>
+
+          <!-- Leg 5: Final -->
+          <div class="leg-card">
+            <div class="leg-number">5</div>
+            <h3 class="leg-title">Final</h3>
+            <p class="leg-description">
+              Turn 90° terakhir untuk align dengan runway. Lanjutkan descent
+              dengan stable approach hingga touchdown.
+            </p>
+            <span class="leg-altitude">🛬 Continue descent to landing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-separator"></div>
+
+      <!-- Radio Phraseology Section -->
+      <div class="phraseology-section">
+        <div class="section-header"></div>
+
+        <div class="phraseology-grid">
+          <!-- Initial Call -->
+          <div class="phrase-card">
+            <div class="phrase-situation">Initial Contact & Taxi Request</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Ngurah Tower, PK-ABC, Cessna 172, at parking stand 41, request
+              VFR clearance local flight circuit pattern"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, cleared local flight left hand circuit pattern altitude
+              1500ft runway 09, squawk 1201"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared local flight left hand circuit pattern altitude 1500ft
+              runway 09, squawk 1201, PK-ABC"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, readback is correct report ready for start up"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "PK-ABC, request start up"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, start up approved, report ready for taxi"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "PK-ABC, request taxi departure intersection S2"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, taxi hold short S2"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Hold short S2, PK-ABC"
+            </div>
+          </div>
+
+          <!-- Takeoff Clearance -->
+          <div class="phrase-card">
+            <div class="phrase-situation">Ready for Departure</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Ngurah Tower, PK-ABC, S2, ready for departure"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, runway 09, cleared for takeoff, report upwind"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared for takeoff runway 09, report upwind, PK-ABC"
+            </div>
+            <div class="phrase-situation">Upwind report</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "PK-ABC, upwind"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, cleared join downwind report on downwind"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared downwind report downwind, PK-ABC"
+            </div>
+            <div class="phrase-situation">Downwind report</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "PK-ABC, downwind, request touch and go"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, cleared join final report on final"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared final report final, PK-ABC"
+            </div>
+            <div class="phrase-situation">Final report</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "PK-ABC, final"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, wind calm runway 09, clear for touch and go, report
+              upwind"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared for touch and go, report upwind, PK-ABC"
+            </div>
+            <div class="phrase-situation">Upwind report</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "PK-ABC, upwind"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, cleared join downwind report on downwind"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared downwind report downwind, PK-ABC"
+            </div>
+            <div class="phrase-situation">Downwind report</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "PK-ABC, downwind, request full stop"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, cleared join final report on final"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared final report final, PK-ABC"
+            </div>
+            <div class="phrase-situation">Final report</div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "PK-ABC, final"
+            </div>
+            <div class="phrase-atc">
+              <div class="phrase-label atc-label">ATC:</div>
+              "PK-ABC, wind calm, runway 09 cleared to land"
+            </div>
+            <div class="phrase-pilot">
+              <div class="phrase-label pilot-label">Pilot:</div>
+              "Cleared to land runway 09, PK-ABC"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garis bawah -->
+    <div class="hero-separator"></div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Bendera Hijau Community v1.2</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
