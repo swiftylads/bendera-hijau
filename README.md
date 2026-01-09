@@ -35,6 +35,29 @@ Green Flag/
 └── *.html               # HTML pages
 ```
 
+## 💡 Request Materi Feature
+
+Website ini memiliki fitur **Request Materi** yang memungkinkan pengunjung untuk mengirimkan ide materi baru. Fitur ini tidak memerlukan database - menggunakan Google Forms atau email sebagai solusi.
+
+### Setup Request Form
+
+Edit file `assets/js/app.js` pada bagian `handleRequestSubmit`:
+
+**Option 1: Google Forms (Recommended)**
+1. Buat Google Form di https://docs.google.com/forms
+2. Tambahkan field: Nama, Judul Materi, Kategori, Deskripsi
+3. Copy URL form dan paste ke `GOOGLE_FORMS_URL` di `app.js`
+
+**Option 2: Email (Fallback)**
+1. Ganti `EMAIL` di `app.js` dengan email Anda
+2. Form akan mengirim email langsung menggunakan mailto:
+
+```javascript
+const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/YOUR_FORM_ID/viewform';
+// atau
+const EMAIL = 'your-email@example.com';
+```
+
 ## 📚 Menambahkan Materi Baru
 
 Sangat mudah! Cukup edit file `models/Materials.js`:
@@ -94,4 +117,4 @@ Setelah menambahkan di `Materials.js`:
 
 ## 📄 License
 
-© 2026 Green Flag Community v3.0
+© 2026 Green Flag Community v3.1

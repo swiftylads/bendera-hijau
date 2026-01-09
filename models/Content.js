@@ -42,7 +42,7 @@ export const Content = {
   ],
   
   footer: {
-    text: '© 2026 Green Flag Community v3.0',
+    text: '© 2026 Green Flag Community v3.1',
     discord: 'https://discord.gg/vMrjWgBM'
   }
 };

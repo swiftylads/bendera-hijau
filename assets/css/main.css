@@ -20,7 +20,6 @@
   --dark-bg: #0a0e1a;
   --bg-primary: #0a0e1a;
   --bg-secondary: #141b2d;
-  --bg-tertiary: #1a2332;
   --card-bg: #141824;
   --bg-card: rgba(20, 24, 36, 0.95);
   --bg-card-hover: rgba(30, 35, 50, 0.98);
@@ -171,9 +170,10 @@ body::before {
    HEADER & NAVIGATION
    ======================================== */
 header {
-  background: rgba(10, 14, 26, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
+  background: rgba(10, 14, 26, 0.5);
+  backdrop-filter: saturate(180%) blur(25px);
+  -webkit-backdrop-filter: saturate(180%) blur(25px);
+  border-bottom: 1px solid rgba(0, 217, 255, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -183,6 +183,24 @@ header {
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease-in-out;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.03) inset,
+    0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+  background: rgba(10, 14, 26, 0.5);
+  backdrop-filter: saturate(180%) blur(25px);
+  -webkit-backdrop-filter: saturate(180%) blur(25px);
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  border-top: 1px solid rgba(0, 217, 255, 0.2);
+  margin-top: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: 
+    0 -1px 0 rgba(255, 255, 255, 0.03) inset,
+    0 -8px 32px rgba(0, 0, 0, 0.15);
 }
 
 header.hide-navbar {
@@ -198,7 +216,7 @@ nav {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
-  gap: var(--spacing-xl);
+  gap: var(--spacing-md);
 }
 
 .logo {
@@ -220,7 +238,7 @@ nav {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 0.5rem;
+  gap: 0.25rem;
   height: 100%;
   align-items: center;
   margin-left: auto;
@@ -250,11 +268,6 @@ nav {
   font-family: var(--font-body);
 }
 
-.nav-link-text {
-  position: relative;
-  z-index: 1;
-}
-
 .nav-links a:hover,
 .nav-link:hover {
   background: var(--hover-glow);
@@ -277,7 +290,6 @@ nav {
 }
 
 /* Dropdown Menu */
-.nav-dropdown-menu,
 .dropdown-content {
   position: absolute;
   top: 100%;
@@ -298,8 +310,8 @@ nav {
   z-index: 1000;
 }
 
-.nav-dropdown.active .nav-dropdown-menu,
-.nav-item:hover .dropdown-content {
+.nav-item:hover .dropdown-content,
+.nav-item.active .dropdown-content {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -315,8 +327,7 @@ nav {
   font-family: var(--font-body);
 }
 
-.dropdown-item,
-.nav-dropdown-menu a {
+.dropdown-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -328,8 +339,7 @@ nav {
   font-family: var(--font-body);
 }
 
-.dropdown-item:hover,
-.nav-dropdown-menu a:hover {
+.dropdown-item:hover {
   background: var(--hover-glow);
   color: var(--primary-cyan);
   transform: translateX(5px);
@@ -467,7 +477,6 @@ nav {
     border-bottom: 1px solid var(--border-color);
   }
 
-  .nav-dropdown-menu,
   .dropdown-content {
     position: static;
     opacity: 1;
@@ -484,7 +493,6 @@ nav {
     display: block;
   }
 
-  .nav-dropdown.active .nav-dropdown-menu,
   .nav-item:hover .dropdown-content,
   .nav-item.active .dropdown-content {
     max-height: 500px;
@@ -504,13 +512,6 @@ nav {
     padding: 0 var(--spacing-md);
   }
 
-  .logo-title {
-    font-size: 1.2rem;
-  }
-
-  .logo-subtitle {
-    font-size: 0.7rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -522,9 +523,6 @@ nav {
     padding: 0 var(--spacing-sm);
   }
 
-  .logo-title {
-    font-size: 1rem;
-  }
 }
 
 /* ========================================
@@ -560,12 +558,17 @@ nav {
    FOOTER
    ======================================== */
 footer {
-  background: var(--bg-secondary);
+  background: rgba(10, 14, 26, 0.4);
+  backdrop-filter: saturate(180%) blur(30px);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
   padding: var(--spacing-xl) 0;
   text-align: center;
-  border-top: 1px solid var(--border-color);
-  margin-top: var(--spacing-2xl);
-  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: 
+    0 -1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 -4px 30px rgba(0, 0, 0, 0.2);
 }
 
 footer p {
@@ -575,20 +578,21 @@ footer p {
 }
 
 /* ========================================
-   CTA SECTION
+   CTA CONTENT (Inside Request Section)
    ======================================== */
-.cta-section {
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
   text-align: center;
-  padding: var(--spacing-2xl) 0;
-  background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(0, 255, 204, 0.05));
-  margin-top: var(--spacing-2xl);
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
 }
 
 .cta-content h3 {
   font-size: 2rem;
-  color: var(--primary-cyan);
+  background: linear-gradient(135deg, var(--primary-cyan), var(--secondary-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: var(--spacing-sm);
   font-weight: 700;
   font-family: var(--font-heading);
@@ -599,6 +603,7 @@ footer p {
   font-size: 1.1rem;
   margin-bottom: var(--spacing-lg);
   font-family: var(--font-body);
+  line-height: 1.6;
 }
 
 .cta-button {
@@ -615,11 +620,42 @@ footer p {
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
   font-family: var(--font-body);
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
+  box-shadow: 0 6px 30px rgba(0, 217, 255, 0.5);
+}
+
+/* Responsive CTA */
+@media (max-width: 768px) {
+  .cta-content {
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin: 0 var(--spacing-md);
+  }
+
+  .cta-content h3 {
+    font-size: 1.75rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
 }

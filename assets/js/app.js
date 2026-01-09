@@ -139,25 +139,6 @@ window.searchCards = function() {
   });
 };
 
-// Global function for dropdown toggle
-window.toggleCategoryDropdown = function(event, category) {
-  event.preventDefault();
-  event.stopPropagation();
-  
-  const dropdown = event.target.closest('.nav-item');
-  if (!dropdown) return;
-  
-  // Close other dropdowns
-  document.querySelectorAll('.nav-item').forEach(item => {
-    if (item !== dropdown) {
-      item.classList.remove('active');
-    }
-  });
-  
-  // Toggle current dropdown
-  dropdown.classList.toggle('active');
-};
-
 // Close dropdown when clicking outside
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.nav-item')) {
@@ -166,3 +147,71 @@ document.addEventListener('click', (e) => {
     });
   }
 });
+
+// Request Materi Form Handler
+window.handleRequestSubmit = function(event) {
+  event.preventDefault();
+  
+  const form = event.target;
+  const formData = new FormData(form);
+  const data = {
+    title: formData.get('title'),
+    description: formData.get('description')
+  };
+
+  // Option 1: Google Forms (Recommended)
+  // Ganti URL ini dengan Google Forms URL Anda
+  // Cara membuat: https://docs.google.com/forms -> Buat form baru -> Ambil link
+  const GOOGLE_FORMS_URL = ''; // Isi dengan Google Forms URL jika ada
+  
+  // Option 2: Mailto (Fallback)
+  const EMAIL = 'your-email@example.com'; // Ganti dengan email Anda
+  const SUBJECT = encodeURIComponent(`Request Materi: ${data.title}`);
+  const BODY = encodeURIComponent(
+    `Judul Materi: ${data.title}\n\n` +
+    `Deskripsi:\n${data.description}`
+  );
+
+  if (GOOGLE_FORMS_URL) {
+    // Redirect ke Google Forms dengan pre-filled data
+    // Note: Google Forms perlu dikonfigurasi dengan field yang sesuai
+    window.open(GOOGLE_FORMS_URL, '_blank');
+    showRequestSuccess(form);
+  } else {
+    // Menggunakan mailto sebagai fallback
+    const mailtoLink = `mailto:${EMAIL}?subject=${SUBJECT}&body=${BODY}`;
+    window.location.href = mailtoLink;
+    showRequestSuccess(form);
+  }
+};
+
+function showRequestSuccess(form) {
+  // Disable form
+  form.querySelectorAll('input, textarea, select, button').forEach(el => {
+    el.disabled = true;
+  });
+
+  // Show success message
+  const successMsg = document.createElement('div');
+  successMsg.className = 'request-success show';
+  successMsg.innerHTML = `
+    <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+    <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; color: var(--secondary-cyan);">
+      Request Terkirim!
+    </h3>
+    <p>Terima kasih atas kontribusi Anda. Kami akan mempertimbangkan request materi ini.</p>
+  `;
+  
+  form.style.display = 'none';
+  form.parentElement.appendChild(successMsg);
+
+  // Reset form after 5 seconds (optional)
+  setTimeout(() => {
+    form.reset();
+    form.style.display = 'flex';
+    successMsg.remove();
+    form.querySelectorAll('input, textarea, select, button').forEach(el => {
+      el.disabled = false;
+    });
+  }, 5000);
+}

@@ -16,7 +16,6 @@ if (legsGrid) {
       <div class="leg-number">${leg.number}</div>
       <h3 class="leg-title">${leg.title}</h3>
       <p class="leg-description">${leg.description}</p>
-      <span class="leg-altitude">${leg.altitude}</span>
     </div>
   `).join('');
 }

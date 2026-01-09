@@ -30,7 +30,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container" style="margin-top: 2rem; padding: 3rem 2rem">
+    <main class="container" style="margin-top: 1rem; padding: 2rem 2rem">
       <!-- Hero Section -->
       <div class="hero">
         <h1 class="section-title">Materi Tersedia</h1>
@@ -60,26 +60,63 @@
       <div class="materials-grid" id="materialsGrid"></div>
     </main>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="cta-content">
-        <h3>Bergabung dengan Komunitas</h3>
-        <p>Dapatkan bantuan dan diskusi dengan sesama flight simmers</p>
-        <a
-          href="https://discord.gg/qcFdZVeDdQ"
-          class="cta-button"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          JOIN DISCORD
-        </a>
+    <!-- Request Materi & CTA Section -->
+    <section class="request-section">
+      <div class="container">
+        <div class="request-header">
+          <h2 class="section-title">Request Materi Baru</h2>
+          <p class="section-subtitle">
+            Punya ide materi yang ingin ditambahkan? Kirimkan request Anda!
+          </p>
+        </div>
+        <div class="request-card">
+          <div class="request-card-header">
+            <div class="request-icon">💡</div>
+            <div class="request-header-text">
+              <h3>Bagikan Ide Anda</h3>
+              <p>Bantu kami mengembangkan konten yang lebih baik</p>
+            </div>
+          </div>
+          <form
+            id="requestForm"
+            class="request-form"
+            onsubmit="handleRequestSubmit(event)"
+          >
+            <div class="form-group">
+              <label for="requestTitle">Judul Materi *</label>
+              <input
+                type="text"
+                id="requestTitle"
+                name="title"
+                placeholder="Contoh: METAR/TAF Reading, IFR VS VFR, dll"
+                class="form-input"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="requestDescription">Deskripsi Materi *</label>
+              <textarea
+                id="requestDescription"
+                name="description"
+                rows="4"
+                placeholder="Jelaskan materi yang ingin Anda request..."
+                class="form-input"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="request-submit-btn">
+              <span>Kirim Request</span>
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </form>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer>
       <div class="container">
-        <p>&copy; 2026 Green Flag Community v3.0</p>
+        <p>&copy; 2026 Green Flag Community v3.1</p>
       </div>
     </footer>
 
