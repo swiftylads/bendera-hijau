@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Flag - Flight Sim Community</title>
+    <link rel="icon" type="image/png" href="assets/img/greenflag.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+      <div class="plane"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div id="navbar"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-image">
+        <img src="assets/img/night_hires.jpeg" alt="Airplane with night lights" />
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+          <h1 class="bounceIn">
+            Selamat Datang di <br />
+            Green Flag
+          </h1>
+          <p>Platform pembelajaran untuk flight simmers pemula</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <div class="hero-separator"></div>
+
+    <!-- Features -->
+    <div class="container">
+      <section class="features">
+        <!-- Flight Plan Card -->
+        <a href="flightplan.html" class="feature-card-link">
+          <div class="feature-card">
+            <span class="material-symbols-outlined">travel</span>
+            <h3>Flight Plan</h3>
+            <p>
+              Panduan membuat flight plan di SimBrief dari pilih bandara, rute,
+              dan data pesawat hingga siap dipakai di simulator atau
+              IVAO/VATSIM.
+            </p>
+          </div>
+        </a>
+
+        <!-- Radio Telephony Card -->
+        <a href="telephony.html" class="feature-card-link">
+          <div class="feature-card">
+            <span class="material-symbols-outlined">quick_phrases</span>
+            <h3>Radio Telephony</h3>
+            <p>
+              Panduan lengkap komunikasi ATC untuk pilot pemula, semua tersedia
+              dalam format yang mudah dipahami dan praktis.
+            </p>
+          </div>
+        </a>
+
+        <!-- Resource Center Card -->
+        <a href="resources.html" class="feature-card-link">
+          <div class="feature-card">
+            <span class="material-symbols-outlined">add_chart</span>
+            <h3>Resource Center</h3>
+            <p>Available soon.</p>
+          </div>
+        </a>
+      </section>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <a href="https://discord.gg/vMrjWgBM" class="cta-button" target="_blank" rel="noopener noreferrer">
+        JOIN NOW
+        <img src="assets/img/games.png" alt="" width="30px" />
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 Green Flag Community v3.0</p>
+      </div>
+    </footer>
+
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>
